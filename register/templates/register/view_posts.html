@@ -1,0 +1,75 @@
+{% extends 'register/base.html' %}
+{% block albums_active %}active{% endblock %}
+{% load staticfiles %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 270px;
+  margin: 30px;
+  text-align: center;
+  font-family: arial;
+  float:left;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  /*text-decoration: none;
+  font-size: 22px;
+  color: black;*/
+}
+
+button:hover, a:hover {
+  /*opacity: 0.7;*/
+}
+button{
+  width: 50%;
+  float: left;
+  border: 2px solid white;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">All posts</h2><br><br>
+{% for instance in queryset %}
+{% for instance1 in queryset1 %}
+{% if instance1.recruiter_id == instance.recruiter_id %}
+
+<div class="card flex-container">
+  <h3>{{instance1.Post_name}}</h3>
+  <p>Stream : {{instance1.Stream}}</p>
+  <p>Percentage Criteria : {{instance1.Percent_Criteria }}</p>
+  <p>Salary : {{instance1.Salary}}</p>
+  <p>Experience : {{instance1.Experience }}</p>
+  <p>Vacany : {{instance1.Vacancy }}</p>
+  <p>Deadline : {{instance1.Deadline }}</p>
+  <div><a href="/register/post_update/{{instance1.id}}"><button>UPDATE</button></a>
+  <a href="/register/post_delete/{{instance1.id}}"><button>DELETE</button></a></div>
+</div>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+</body>
+{% endblock %}
+</html>

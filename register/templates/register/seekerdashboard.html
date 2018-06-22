@@ -1,0 +1,96 @@
+{% extends 'register/base1.html' %}
+{% block albums_active %}active{% endblock %}
+{% load staticfiles %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 270px;
+  margin: 30px;
+  text-align: center;
+  font-family: arial;
+  float:left;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+/*a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}*/
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    // if (x.style.display === "none") {
+      //   x.style.display = "block";
+    // } else {
+        x.style.display = 'none'
+        console.log(hii)
+    //}
+}
+</script>
+</head>
+<body>
+
+<h2 style="text-align:center">Available vacancies</h2><br><br>
+{% for instance in queryset %}
+    {% for instance1 in queryset1 %}
+    {% if instance.Stream == instance1.Stream and instance.Graduation_percent >= instance1.Percent_Criteria %} 
+       {% for instance3 in queryset3 %}
+         {% if instance3.recruiter_id == instance1.recruiter_id %}
+
+<div class="card flex-container">
+  <!-- <img src="{{ instance1.Seekerid.Photo.url }}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:25%"><br>-->
+  <a href="/register/view_profile/{{instance3.id}}"><h3>{{instance3.Company_name}}</h3></a> 
+  <p class="title">{{instance1.Post_name}}</p>
+  <p>{{instance1.Salary}} Rs per annum</p>
+  <p>{{instance1.Experience}} year of experience</p>
+  <div id={{instance1.id}}><p><a href="/register/{{instance1.id}}"><button>Apply</button></a></p></div>
+{% for instance2 in queryset2 %}
+{% if instance2.Companyid == instance3 and instance2.Seekerid == instance and instance2.Postid == instance1 %}
+<script>
+    var x = document.getElementById({{instance2.Postid.id}});
+    // if (x.style.display === "none") {
+      //   x.style.display = "block";
+    // } else {
+        x.style.display = 'none'
+        console.log(hii)
+    // }
+
+</script>
+ <!-- <div id="myDIV"><p><a href="/register/{{instance1.id}}"><button>Applied</button></a></p></div>      -->
+{% endif %}
+{% endfor %} 
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+</body>
+{% endblock %}
+</html>

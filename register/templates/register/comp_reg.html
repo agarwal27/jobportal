@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Form</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+
+  
+</head>
+
+<body>
+
+  
+   <div class="container">
+  <form <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+ 
+    <div class="row">
+      <h4>Company Details details</h4>
+      <div class="input-group input-group-icon">
+           {{ form.Company_name }}
+       <!--  <input type="text" placeholder="Company Name"/> -->
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon">
+           {{ form.About }}
+       <!--  <input type="text" placeholder="Company Name"/> -->
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      
+      <div class="input-group input-group-icon">
+       <!--  <input type="email" placeholder="Email Adress"/> -->
+        {{ form.Mobile_Number }}
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon">
+       {{ form.City }}
+       <!--  <input type="password" placeholder="Password"/> -->
+        <div class="input-icon"><i class="fa fa-key"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon">
+      <!--   <input type="text" placeholder="City"/> -->
+       {{ form.Address }}
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+
+      <div class="input-group input-group-icon">
+      <!--   <input type="text" placeholder="City"/> -->
+       {{ form.company_logo }}
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      
+      <div >
+       <button class="button button2">Submit</button>
+      </div>
+    
+  </form>
+  </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

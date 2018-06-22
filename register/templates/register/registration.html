@@ -1,0 +1,16 @@
+<html>
+<title>registration form</title>
+<head>
+</head>
+<body>"
+<div height="500px" width="400px" background="yellow">
+    
+   <h1>Userform</h1>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+</div>
+</body>
+</html>
